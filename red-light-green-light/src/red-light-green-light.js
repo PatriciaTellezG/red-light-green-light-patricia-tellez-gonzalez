@@ -1,19 +1,17 @@
 import { LitElement, html, css } from 'lit';
-import './components/home.js';
-import './components/profile.js';
+import './pages/home.js';
+
 
 
 import {Router} from "@vaadin/router";
 
-export class LightsGame extends LitElement {
+ class RedLightGreenLight extends LitElement {
   static properties = {
 
   }
 
   static styles = css`
-    :host {
-      min-height: 100vh;  
-    }
+    
   `;
 
   render() {
@@ -27,11 +25,10 @@ export class LightsGame extends LitElement {
     const router = new Router(output);
     router.setRoutes([
       {path: '/', component: 'home-component'},
-      {path: '/home', component: 'home-component'},
-      {path: '/profile', component: 'profile-component'}
+      {path: '/home', component: 'home-component'}
     ])
   }
 
 }
 
-customElements.define('lights-game', LightsGame);
+customElements.define('red-light-green-light', RedLightGreenLight);
