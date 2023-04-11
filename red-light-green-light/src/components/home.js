@@ -96,7 +96,7 @@ export class Home extends LitElement {
 
   render() {
     return html`
-    <div class="wallpaperContainer">
+    <div class="home-page-text">
       <h1>${this.homeTitle}</h1>
       <p> ${this.userName}</p>
     </div>
@@ -109,7 +109,8 @@ export class Home extends LitElement {
             </div>
             <div class="joinButton">
                 <button  @click="${this.joinButton}"> JOIN</button>
-            </div>
+                <a href="/profile">Start playing</a>
+            
   </div>
     `;
     
