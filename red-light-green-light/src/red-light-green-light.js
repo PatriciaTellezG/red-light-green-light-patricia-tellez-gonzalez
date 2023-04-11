@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
-import './pages/home.js';
+import './components/home.js';
+import './components/game.js';
 
 
 
@@ -25,7 +26,8 @@ import {Router} from "@vaadin/router";
     const router = new Router(output);
     router.setRoutes([
       {path: '/', component: 'home-component'},
-      {path: '/home', component: 'home-component'}
+      {path: '/home', component: 'home-component'},
+      {path: '/game', component: 'game-component'}
     ])
   }
 
