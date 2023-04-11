@@ -33,13 +33,15 @@ export class Home extends LitElement {
       display:flex;
       justify-content:center;
       width: 10rem;
+      margin-left: 40%;
+      margin-right: 40%;
     }
 
     .input {
             top: 0px;
             left: 0px;
             height: 100%;
-            width: 100%;
+            width: 75%;
             border: 2px solid #3195c7;
             border-radius: 7px;
             font-size: 16px;
@@ -52,9 +54,9 @@ export class Home extends LitElement {
             position: relative; 
             height: 45px;
             width: 90%;
-            margin-bottom: 15px;
             display:flex;
-            margin-left: 15px;
+            margin-left: 10%;
+            
         }
         ::placeholder {
             color: transparent;
@@ -93,7 +95,7 @@ export class Home extends LitElement {
             font-weight: 600;
         }
         button {
-            
+            width:60%;
             border-radius: 1rem;
             padding: 0.5rem 0.5rem;
             margin: 2rem 1.2rem;
@@ -102,6 +104,12 @@ export class Home extends LitElement {
             cursor: pointer;
             background-color: #3195c7;
             
+        }
+        .joinButton {
+          display:flex;
+          justify-content:center;
+          margin-left: 10%;
+          margin-right: 10%;
         }
         a {
           text-decoration: none;
@@ -115,6 +123,7 @@ export class Home extends LitElement {
 
   render() {
     return html`
+    
     <div class="home-page-text">
       <h1>${this.homeTitle}</h1>
       <img class="welcome-icon" src="./assets/welcome.png" >
@@ -128,7 +137,7 @@ export class Home extends LitElement {
                 </div> 
             </div>
             <div class="joinButton">
-                <button > <a href="/profile">JOIN</a></button>
+                <button > <a href="/game">JOIN</a></button>
             </div>
                
             
