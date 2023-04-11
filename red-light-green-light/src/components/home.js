@@ -108,8 +108,8 @@ export class Home extends LitElement {
                 </div> 
             </div>
             <div class="joinButton">
-                <button  @click="${this.joinButton}"> JOIN</button>
-                <a href="/profile">Start playing</a>
+                <button >  <a href="/profile">JOIN</a></button>
+               
             
   </div>
     `;
