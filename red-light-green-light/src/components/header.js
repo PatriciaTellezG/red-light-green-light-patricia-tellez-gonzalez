@@ -3,13 +3,31 @@ import { LitElement, html, css } from 'lit';
 export class Header extends LitElement {
   static properties = {
    header: {type:String},
-   userName: {type:String}
+  // userName: {type:String},
+   inputValue: {type:String},
   }
 
   constructor() {
     super();
-    this.userName='';
+    //this.userName='';
+    this.inputValue='';
   }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener('user-name-input', this.handleInputChange.bind(this));
+    }
+    
+    disconnectedCallback() {
+     super.disconnectedCallback();
+     this.removeEventListener('user-name-input', this.handleInputChange.bind(this));
+    }
+    
+    handleInputChange(event) {
+    debugger
+    this.inputValue = event.detail;
+   
+     }
 
   static styles = css`
      .header {
@@ -48,7 +66,7 @@ export class Header extends LitElement {
   render() {
     return html`
     <div class="header">
-        <p class="user-greeting">Hi !</p>
+        <p class="user-greeting">Hi ${this.inputValue}!</p>
         <div class="exitButton">
         <a href="/home"><img class="home-route-icon" src="./assets/home-route-icon.png" alt="home route"></a>
         </div>

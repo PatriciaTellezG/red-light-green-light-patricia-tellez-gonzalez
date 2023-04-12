@@ -2,13 +2,31 @@ import { LitElement, html, css } from 'lit';
 
 export class Game extends LitElement {
     static properties = {
-        userName: { type: String }
+        userName: { type: String },
+        count: { type: Number }
+          
+          
       }
 
+      connectedCallback() {
+        super.connectedCallback();
+        this.addEventListener('user-name-input', this.handleInputChange.bind(this));
+        }
+        
+        disconnectedCallback() {
+         super.disconnectedCallback();
+         this.removeEventListener('user-name-input', this.handleInputChange.bind(this));
+        }
+
+        handleInputChange(event) {
+            debugger
+            console.log(event.detail);
+           
+             }
       
   constructor() {
     super();
-   
+    this.count = 0;
     }
 
     static styles = css`
@@ -61,7 +79,8 @@ export class Game extends LitElement {
 
 render() {
     return html`
-    <header-component>HEADER</header-component>
+    <header-component></header-component>
+
     <div class="game-text-container">
          <div class="high-score">
         Your highest score is:
@@ -70,7 +89,7 @@ render() {
             <img class="traffic-image" src="./assets/green.png" >
         </div>
         <div class="score">
-            Score:
+        <h1>Score: ${this.count}</h1>
         </div>
     </div>
    

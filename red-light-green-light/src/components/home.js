@@ -3,7 +3,7 @@ import { LitElement, html, css } from 'lit';
 export class Home extends LitElement {
   static properties = {
     homeTitle: { type: String },
-    userName: { type: String },
+    userName: { type: String }
   }
 
   constructor() {
@@ -13,8 +13,22 @@ export class Home extends LitElement {
     
   }
 
+  getUserName() {
+   const inputValue = this.shadowRoot.querySelector('#input').value;
+   const event = new CustomEvent('user-name-input',{detail: inputValue, bubbles: true, composed: true});
+   this.dispatchEvent(event);
+   debugger
+
+    
+  }
+
   static styles = css`
-    @media screen and (min-width:400px)
+    @media screen and (min-width:400px){
+
+    }
+    @media screen and (max-width:1200px){
+      
+    }
 
     h1 {
       display: flex;
@@ -120,27 +134,25 @@ export class Home extends LitElement {
           font-weight:400;
           
         }
-    
-
   `;
 
+      
   render() {
     return html`
     
     <div class="home-page-text">
       <h1>${this.homeTitle}</h1>
       <img class="welcome-icon" src="./assets/welcome.png" >
-      <p> ${this.userName}</p>
     </div>
     <div class="form">
-            <div class="containerForm">
+            <div class="containerForm"> 
                 <div class="inputContainer">
-                    <input type="text" class="input" placeholder="Name" required>
+                    <input id="input" type="text" class="input" placeholder="Name" required >
                     <label for="" class="label">Name</label>   
                 </div> 
             </div>
             <div class="joinButton">
-                <button > <a href="/game">JOIN</a></button>
+                <button @click="${this.getUserName}"> <a href="/game">JOIN</a></button>
             </div>
                
             
@@ -150,6 +162,6 @@ export class Home extends LitElement {
   }
 }
 
+
 customElements.define('home-component', Home);
 
-//icons taken from <a href="https://www.flaticon.com/free-icons/bank" title="bank icons">Bank icons created by Freepik - Flaticon</a>
