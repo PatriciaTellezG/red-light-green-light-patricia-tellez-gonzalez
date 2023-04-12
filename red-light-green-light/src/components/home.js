@@ -14,13 +14,7 @@ export class Home extends LitElement {
   }
 
   static styles = css`
-    .wallpaperContainer {
-     
-     margin: 1%;
-     padding:5%;
-     border-radius:1rem;
-     
-    }
+    @media screen and (min-width:400px)
 
     h1 {
       display: flex;
@@ -33,10 +27,14 @@ export class Home extends LitElement {
       display:flex;
       justify-content:center;
       width: 10rem;
-      margin-left: 40%;
-      margin-right: 40%;
+      padding: 5%;
+      
     }
-
+    .home-page-text {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
     .input {
             top: 0px;
             left: 0px;
@@ -103,17 +101,22 @@ export class Home extends LitElement {
             outline: none;
             cursor: pointer;
             background-color: #3195c7;
-            
+        
+        }
+
+        button:hover {
+            background-color: #5bcdcf;
         }
         .joinButton {
           display:flex;
           justify-content:center;
           margin-left: 10%;
           margin-right: 10%;
+          padding:5%;
         }
         a {
           text-decoration: none;
-          color: #E0F0F3 ;
+          color: #E0F0F3;
           font-weight:400;
           
         }
