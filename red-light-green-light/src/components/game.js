@@ -3,7 +3,9 @@ import {Router } from '@vaadin/router';
 export class Game extends LitElement {
     static properties = {
         userName: { type: String },
-        count: { type: Number }
+        count: { type: Number },
+        red: { type: Boolean},
+        
           
       }
     // TODO: si no hay found[1] navegar de vuelta a home
@@ -23,6 +25,7 @@ connectedCallback() {
     super();
     this.userName='';
     this.count = 0;
+    this.red = false;
     }
 
     static styles = css`
@@ -82,7 +85,7 @@ render() {
         Your highest score is:
         </div>
         <div class="traffic-light-image">
-            ${this.red ? `<img class="traffic-image" src="./assets/red.png" >` : `<img class="traffic-image" src="./assets/green.png" >`}
+            ${this.red ? html`<img class="traffic-image" src="./assets/red.png" >` : html`<img class="traffic-image" src="./assets/green.png" >`}
             
             
         </div>
