@@ -1,31 +1,27 @@
 import { LitElement, html, css } from 'lit';
-
+import {Router } from '@vaadin/router';
 export class Game extends LitElement {
     static properties = {
         userName: { type: String },
         count: { type: Number }
           
-          
       }
+    // TODO: si no hay found[1] navegar de vuelta a home
 
-      connectedCallback() {
-        super.connectedCallback();
-        this.addEventListener('user-name-input', this.handleInputChange.bind(this));
-        }
-        
-        disconnectedCallback() {
-         super.disconnectedCallback();
-         this.removeEventListener('user-name-input', this.handleInputChange.bind(this));
-        }
+connectedCallback() {
 
-        handleInputChange(event) {
-            debugger
-            console.log(event.detail);
-           
-             }
+    super.connectedCallback();
+    const matches = window.location.search.match(/\?user=(.+)/);
+    if (matches&&matches[1])  {
+    this.userName =matches[1];
+    } else {
+        setTimeout(() => Router.go('/home'), 0);
+    }
+    }
       
   constructor() {
     super();
+    this.userName='';
     this.count = 0;
     }
 
@@ -76,17 +72,19 @@ export class Game extends LitElement {
         width:50%;
     }
   `;
-
+//update user name (82)
 render() {
     return html`
-    <header-component></header-component>
+    <header-component .userName=${this.userName}></header-component> 
 
     <div class="game-text-container">
          <div class="high-score">
         Your highest score is:
         </div>
         <div class="traffic-light-image">
-            <img class="traffic-image" src="./assets/green.png" >
+            ${this.red ? `<img class="traffic-image" src="./assets/red.png" >` : `<img class="traffic-image" src="./assets/green.png" >`}
+            
+            
         </div>
         <div class="score">
         <h1>Score: ${this.count}</h1>

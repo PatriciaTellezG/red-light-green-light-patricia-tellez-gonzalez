@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import {Router } from '@vaadin/router';
 
 export class Home extends LitElement {
   static properties = {
@@ -15,11 +16,7 @@ export class Home extends LitElement {
 
   getUserName() {
    const inputValue = this.shadowRoot.querySelector('#input').value;
-   const event = new CustomEvent('user-name-input',{detail: inputValue, bubbles: true, composed: true});
-   this.dispatchEvent(event);
-   debugger
-
-    
+    Router.go(`/game?user=${inputValue}`)
   }
 
   static styles = css`
@@ -152,7 +149,7 @@ export class Home extends LitElement {
                 </div> 
             </div>
             <div class="joinButton">
-                <button @click="${this.getUserName}"> <a href="/game">JOIN</a></button>
+                <button @click="${this.getUserName}">JOIN</button>
             </div>
                
             
