@@ -10,7 +10,7 @@ export class Game extends LitElement {
       }
     // TODO: si no hay found[1] navegar de vuelta a home
 
-connectedCallback() {
+    connectedCallback() {
 
     super.connectedCallback();
     const matches = window.location.search.match(/\?user=(.+)/);
@@ -20,12 +20,36 @@ connectedCallback() {
         setTimeout(() => Router.go('/home'), 0);
     }
     }
+    leftButton() {
+        this.clickButton('left');
+      }
+      rightButton() {
+        this.clickButton('right');
+      }
+      clickButton(direction) {
+        console.log(direction);
+        if (!this.last_button) {
+          this.count++;
+        }
+        else{
+          if (direction === this.lastButton) {
+            this.count = 0;
+            this.lastButton = null;
+            return
+          }else{
+            this.count++;
+          }
+        }
+        this.lastButton = direction;
+      }
+    
       
   constructor() {
     super();
     this.userName='';
     this.count = 0;
     this.red = false;
+    this.lastButton=null;
     }
 
     static styles = css`
@@ -75,7 +99,7 @@ connectedCallback() {
         width:50%;
     }
   `;
-//update user name (82)
+//update user name (line:82)
 render() {
     return html`
     <header-component .userName=${this.userName}></header-component> 
@@ -101,6 +125,7 @@ render() {
     `;
     
   }
+  
 
 }
 
