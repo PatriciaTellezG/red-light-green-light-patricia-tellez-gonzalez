@@ -22,8 +22,24 @@ export class Header extends LitElement {
      }
 
      .exitButton {
+        display:flex;
+        justify-content:center;
         text-decoration:none;
+        
      }
+     a {
+        text-decoration: none;
+        display:flex;
+        justify-content:flex-end;
+          
+        }
+    .home-route-icon {
+        width:20%;
+        
+    }
+    .user-greeting {
+        font-size:large;
+    }
     `;
 
 
@@ -31,11 +47,14 @@ export class Header extends LitElement {
 
   render() {
     return html`
-       <div class="header">
-        <p>Hi !</p>
-       <button class="exitButton"> <a href="/home">Home</a></button>
+    <div class="header">
+        <p class="user-greeting">Hi !</p>
+        <div class="exitButton">
+        <a href="/home"><img class="home-route-icon" src="./assets/home-route-icon.png" alt="home route"></a>
+        </div>
        
-       </div>
+       
+    </div>
       `;
   }
 }
