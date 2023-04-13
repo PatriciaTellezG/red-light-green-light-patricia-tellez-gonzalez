@@ -1,20 +1,28 @@
-import { LitElement, html, css } from 'lit';
+import {
+  LitElement,
+  html,
+  css
+} from 'lit';
 
 export class Header extends LitElement {
   static properties = {
-   header: {type:String},
-   userName: {type:String},
-   
+    header: {
+      type: String
+    },
+    userName: {
+      type: String
+    },
+
   }
 
   constructor() {
     super();
-    this.userName='';
-    
+    this.userName = '';
+
   }
 
 
-  static styles = css`
+  static styles = css `
      .header {
         display:flex;
         justify-content:space-between;
@@ -46,10 +54,10 @@ export class Header extends LitElement {
     `;
 
 
-  
+
 
   render() {
-    return html`
+    return html `
     <div class="header">
         <p class="user-greeting">Hi ${this.userName}!</p>
         <div class="exitButton">

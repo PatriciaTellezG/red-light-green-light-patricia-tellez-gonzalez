@@ -1,25 +1,35 @@
-import { LitElement, html, css } from 'lit';
-import {Router } from '@vaadin/router';
+import {
+  LitElement,
+  html,
+  css
+} from 'lit';
+import {
+  Router
+} from '@vaadin/router';
 
 export class Home extends LitElement {
   static properties = {
-    homeTitle: { type: String },
-    userName: { type: String }
+    homeTitle: {
+      type: String
+    },
+    userName: {
+      type: String
+    }
   }
 
   constructor() {
     super();
     this.homeTitle = 'Write your name and start to play!';
     this.userName = '';
-    
+
   }
 
   getUserName() {
-   const inputValue = this.shadowRoot.querySelector('#input').value;
+    const inputValue = this.shadowRoot.querySelector('#input').value;
     Router.go(`/game?user=${inputValue}`)
   }
 
-  static styles = css`
+  static styles = css `
     @media screen and (min-width:400px){
 
     }
@@ -135,9 +145,9 @@ export class Home extends LitElement {
         }
   `;
 
-      
+
   render() {
-    return html`
+    return html `
     
     <div class="home-page-text">
       <h1>${this.homeTitle}</h1>
@@ -157,10 +167,9 @@ export class Home extends LitElement {
             
   </div>
     `;
-    
+
   }
 }
 
 
 customElements.define('home-component', Home);
-

@@ -1,63 +1,87 @@
-import { LitElement, html, css } from 'lit';
-import {Router } from '@vaadin/router';
+import {LitElement,html,css} from 'lit';
+import {Router} from '@vaadin/router';
 export class Game extends LitElement {
-    static properties = {
-        userName: { type: String },
-        count: { type: Number },
-        highestScore: { type: Number },
-        red: { type: Boolean},
-        currentImage: { type:Number },
-           
-      }
-    
-      constructor() {
-        super();
-        this.userName='';
-        this.count = 0;
-        this.highScore = 1000;
-        this.red = false;
-        this.lastButton=null;
-        this.currentImage=0;
+  static properties = {
+    userName: {
+      type: String
+    },
+    count: {
+      type: Number
+    },
+    highestScore: {
+      type: Number
+    },
+    currentImage: {
+      type: Number
+    },
+    red: {
+      type: Boolean
+    },
+  }
 
-        }
+  constructor() {
+    super();
+    this.userName = '';
+    this.count = 0;
+    this.highScore = 1000;
+    this.lastButton = null;
+    this.currentImage = 0;
+    this.intervalId = null;
+    this.red = true;
+  }
 
-    connectedCallback() {
+  connectedCallback() {
 
     super.connectedCallback();
     const matches = window.location.search.match(/\?user=(.+)/);
-    if (matches&&matches[1])  {
-    this.userName =matches[1];
+    if (matches && matches[1]) {
+      this.userName = matches[1];
     } else {
-        setTimeout(() => Router.go('/home'), 0);
+      setTimeout(() => Router.go('/home'), 0);
     }
-    }
-    leftButton() {
-        this.clickButton('left');
-      }
-      rightButton() {
-        this.clickButton('right');
-      }
-      clickButton(direction) {
-        console.log(direction);
-        if (!this.last_button) {
-          this.count++;
-        }
-        else{
-          if (direction === this.lastButton) {
-            this.count = 0;
-            this.lastButton = null;
-            return
-          }else{
-            this.count++;
-          }
-        }
-        this.lastButton = direction;
-      }
-    
-      
+
+  }
 
 
-    static styles = css`
+  // greenLight = max(10000 - score * 100, 2000) + random(-1500, 1500)
+  // 
+  updated(changedProperties) {
+    let timeOut = this.red ? 3000 : 10000;
+    if (changedProperties.has('red')) {
+      this.intervalId = setTimeout(() => {
+        this.red = !this.red
+      }, timeOut);
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    clearInterval(this.intervalId);
+  }
+
+  leftButton() {
+    this.clickButton('left');
+  }
+  rightButton() {
+    this.clickButton('right');
+  }
+  clickButton(direction) {
+    if (this.red) {
+      this.count = 0;
+    } else {
+      if (direction === this.lastButton) {
+        this.count -= 1;
+      } else {
+        this.count++;
+      }
+    }
+    this.lastButton = direction;
+  }
+
+
+
+
+  static styles = css `
     .game-buttons {
         display:flex;
         justify-content:space-evenly;
@@ -104,9 +128,9 @@ export class Game extends LitElement {
         width:50%;
     }
   `;
-//update user name (line:82)
-render() {
-    return html`
+  //update user name (line:82)
+  render() {
+    return html `
     <header-component .userName=${this.userName}></header-component> 
 
     <div class="game-text-container">
@@ -114,8 +138,10 @@ render() {
         Your highest score is:
         </div>
         <div class="traffic-light-image">
-            ${this.red ? html`<img class="traffic-image" src="./assets/red.png" >` : html`<img class="traffic-image" src="./assets/green.png" >`}
-            
+          
+            ${this.red
+            ? html`<img class="game-image" src="./assets/red.png" />`
+            : html`<img class="game-image" src="./assets/green.png" />`}
             
         </div>
         <div class="score">
@@ -128,9 +154,9 @@ render() {
       <button  @click="${this.rightButton}"> Right</button>
     </div>
     `;
-    
+
   }
-  
+
 
 }
 
