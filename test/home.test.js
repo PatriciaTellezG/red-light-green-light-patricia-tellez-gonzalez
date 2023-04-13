@@ -2,9 +2,7 @@ import {html} from "lit";
 import "../src/components/home.js" ;
 import { fixture, expect } from '@open-wc/testing';
 import { stub } from 'sinon';
-import {
-  Router
-} from '@vaadin/router';
+import { Router} from '@vaadin/router';
 
 
 describe('home-component', () => {
