@@ -112,6 +112,7 @@ export class Home extends LitElement {
             outline: none;
             cursor: pointer;
             background-color: #3195c7;
+            color: #E0F0F3;
         
         }
 
@@ -124,6 +125,7 @@ export class Home extends LitElement {
           margin-left: 10%;
           margin-right: 10%;
           padding:5%;
+          color: #E0F0F3;
         }
         a {
           text-decoration: none;

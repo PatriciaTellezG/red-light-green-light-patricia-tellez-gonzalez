@@ -4,11 +4,22 @@ export class Game extends LitElement {
     static properties = {
         userName: { type: String },
         count: { type: Number },
+        highestScore: { type: Number },
         red: { type: Boolean},
-        
-          
+        currentImage: { type:Number },
+           
       }
-    // TODO: si no hay found[1] navegar de vuelta a home
+    
+      constructor() {
+        super();
+        this.userName='';
+        this.count = 0;
+        this.highScore = 1000;
+        this.red = false;
+        this.lastButton=null;
+        this.currentImage=0;
+
+        }
 
     connectedCallback() {
 
@@ -44,13 +55,7 @@ export class Game extends LitElement {
       }
     
       
-  constructor() {
-    super();
-    this.userName='';
-    this.count = 0;
-    this.red = false;
-    this.lastButton=null;
-    }
+
 
     static styles = css`
     .game-buttons {
