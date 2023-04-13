@@ -60,7 +60,6 @@ export class Game extends LitElement {
       }, timeOut);
     }
     if (changedProperties.has('count') || changedProperties.has('highestScore')) {
-debugger
       let userInfo = {
         count: this.count,
         highestScore: this.highestScore,
@@ -76,8 +75,6 @@ debugger
 
 
   }
-  //const highScore = localStorage.getItem('highScore');
-  // const playerName = localStorage.getItem('playerName');
 
   leftButton() {
     this.clickButton('left');
