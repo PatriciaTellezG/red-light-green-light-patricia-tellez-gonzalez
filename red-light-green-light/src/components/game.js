@@ -1,5 +1,11 @@
-import {LitElement,html,css} from 'lit';
-import {Router} from '@vaadin/router';
+import {
+  LitElement,
+  html,
+  css
+} from 'lit';
+import {
+  Router
+} from '@vaadin/router';
 export class Game extends LitElement {
   static properties = {
     userName: {
@@ -23,10 +29,9 @@ export class Game extends LitElement {
     super();
     this.userName = '';
     this.count = 0;
-    this.highScore = 1000;
+    this.highestScore = 0;
     this.lastButton = null;
     this.currentImage = 0;
-    this.intervalId = null;
     this.red = true;
   }
 
@@ -39,27 +44,40 @@ export class Game extends LitElement {
     } else {
       setTimeout(() => Router.go('/home'), 0);
     }
+    let userInfo = JSON.parse(localStorage.getItem(this.userName))
+    this.count = userInfo.count;
+    this.highestScore = userInfo.highestScore;
 
   }
 
- 
- //let randomNumber = Math.floor(Math.random() * 3000) - 1500;  número aleatorio entre 1500 y -1500
- //let secondsTime = Math.max(10000 - (points || 0) * 100, 2000); siempre cogerá 1000s - el tiempo que corresponda hasta un mínimo de 2000s
-  // greenLight = max(10000 - score * 100, 2000) + random(-1500, 1500)
-  // ((Math.floor(Math.random() * 3000) - 1500)+(Math.max(10000 - (points || 0) * 100, 2000)))
+
+
   updated(changedProperties) {
-    let timeOut = this.red ? 3000 : ((Math.floor(Math.random() * 3000) - 1500)+(Math.max(10000 - (this.count || 0) * 100, 2000)));
+    let timeOut = this.red ? 3000 : ((Math.floor(Math.random() * 3000) - 1500) + (Math.max(10000 - (this.count || 0) * 100, 2000)));
     if (changedProperties.has('red')) {
       this.intervalId = setTimeout(() => {
         this.red = !this.red
       }, timeOut);
     }
+    if (changedProperties.has('count') || changedProperties.has('highestScore')) {
+debugger
+      let userInfo = {
+        count: this.count,
+        highestScore: this.highestScore,
+      }
+      localStorage.setItem(this.userName, JSON.stringify(userInfo))
+    }
+
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     clearInterval(this.intervalId);
+
+
   }
+  //const highScore = localStorage.getItem('highScore');
+  // const playerName = localStorage.getItem('playerName');
 
   leftButton() {
     this.clickButton('left');
@@ -72,9 +90,13 @@ export class Game extends LitElement {
       this.count = 0;
     } else {
       if (direction === this.lastButton) {
-        this.count -= 1;
+        this.count -=1;
       } else {
-        this.count++;
+        this.count +=1;
+
+        if(this.count>this.highestScore){
+            this.highestScore=this.count;
+        }
       }
     }
     this.lastButton = direction;
@@ -137,7 +159,7 @@ export class Game extends LitElement {
 
     <div class="game-text-container">
          <div class="high-score">
-        Your highest score is:
+        Your highest score is ${this.highestScore}
         </div>
         <div class="traffic-light-image">
           

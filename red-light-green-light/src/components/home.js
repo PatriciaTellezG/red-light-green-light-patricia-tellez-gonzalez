@@ -33,9 +33,7 @@ export class Home extends LitElement {
     @media screen and (min-width:400px){
 
     }
-    @media screen and (max-width:1200px){
-      
-    }
+    
 
     h1 {
       display: flex;
