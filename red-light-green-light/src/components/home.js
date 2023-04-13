@@ -57,92 +57,92 @@ export class Home extends LitElement {
       align-items:center;
     }
     .input {
-            top: 0px;
-            left: 0px;
-            height: 100%;
-            width: 75%;
-            border: 2px solid #3195c7;
-            border-radius: 7px;
-            font-size: 16px;
-            padding: 0 20px;
-            outline: none;
-            background: none;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 75%;
+      border: 2px solid #3195c7;
+      border-radius: 7px;
+      font-size: 16px;
+      padding: 0 20px;
+      outline: none;
+      background: none;
            
-        }
-        .inputContainer {
-            position: relative; 
-            height: 45px;
-            width: 90%;
-            display:flex;
-            margin-left: 10%;
+      }
+      .inputContainer {
+        position: relative; 
+        height: 45px;
+        width: 90%;
+        display:flex;
+        margin-left: 10%;
             
-        }
-        ::placeholder {
-            color: transparent;
-        }
+      }
+      ::placeholder {
+        color: transparent;
+      }
 
-        .label {
-            position: absolute;
-            top: 15px;
-            left: 30px;
-            padding: 0 4px;
-            background-color: #E0F0F3 ;
-            color: #3195c7 ;
-            font-size: 16px;
-            transition: 0.5s;
-            z-index: 0;
-            margin-left:10px;
-        }
+      .label {
+        position: absolute;
+        top: 15px;
+        left: 30px;
+        padding: 0 4px;
+        background-color: #E0F0F3 ;
+        color: #3195c7 ;
+        font-size: 16px;
+        transition: 0.5s;
+        z-index: 0;
+        margin-left:10px;
+      }
 
-        .input:focus + .label {
-            top: -7px;
-            left: 30px;
-            z-index: 10;
-            font-size: 14px;
-            font-weight: 600;
-            color: #35DCD9 ;
-        }
-        .input:focus {
-            border: 2px solid #35DCD9 ;
-        }
+      .input:focus + .label {
+        top: -7px;
+        left: 30px;
+        z-index: 10;
+        font-size: 14px;
+        font-weight: 600;
+        color: #35DCD9 ;
+      }
+      .input:focus {
+        border: 2px solid #35DCD9 ;
+      }
 
-        .input:not(:placeholder-shown)+ .label {
-            top: -7px;
-            left: 3px;
-            z-index: 10;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        button {
-            width:60%;
-            border-radius: 1rem;
-            padding: 0.5rem 0.5rem;
-            margin: 2rem 1.2rem;
-            border-color: transparent;
-            outline: none;
-            cursor: pointer;
-            background-color: #3195c7;
-            color: #E0F0F3;
+      .input:not(:placeholder-shown)+ .label {
+        top: -7px;
+        left: 3px;
+        z-index: 10;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      button {
+        width:60%;
+        border-radius: 1rem;
+        padding: 0.5rem 0.5rem;
+        margin: 2rem 1.2rem;
+        border-color: transparent;
+        outline: none;
+        cursor: pointer;
+        background-color: #3195c7;
+        color: #E0F0F3;
         
-        }
+      }
 
-        button:hover {
-            background-color: #5bcdcf;
-        }
-        .joinButton {
-          display:flex;
-          justify-content:center;
-          margin-left: 10%;
-          margin-right: 10%;
-          padding:5%;
-          color: #E0F0F3;
-        }
-        a {
-          text-decoration: none;
-          color: #E0F0F3;
-          font-weight:400;
+      button:hover {
+        background-color: #5bcdcf;
+      }
+      .joinButton {
+        display:flex;
+        justify-content:center;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding:5%;
+        color: #E0F0F3;
+      }
+      a {
+        text-decoration: none;
+        color: #E0F0F3;
+        font-weight:400;
           
-        }
+      }
   `;
 
 

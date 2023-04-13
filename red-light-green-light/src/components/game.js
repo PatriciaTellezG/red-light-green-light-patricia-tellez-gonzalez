@@ -42,11 +42,13 @@ export class Game extends LitElement {
 
   }
 
-
+ 
+ //let randomNumber = Math.floor(Math.random() * 3000) - 1500;  número aleatorio entre 1500 y -1500
+ //let secondsTime = Math.max(10000 - (points || 0) * 100, 2000); siempre cogerá 1000s - el tiempo que corresponda hasta un mínimo de 2000s
   // greenLight = max(10000 - score * 100, 2000) + random(-1500, 1500)
-  // 
+  // ((Math.floor(Math.random() * 3000) - 1500)+(Math.max(10000 - (points || 0) * 100, 2000)))
   updated(changedProperties) {
-    let timeOut = this.red ? 3000 : 10000;
+    let timeOut = this.red ? 3000 : ((Math.floor(Math.random() * 3000) - 1500)+(Math.max(10000 - (this.count || 0) * 100, 2000)));
     if (changedProperties.has('red')) {
       this.intervalId = setTimeout(() => {
         this.red = !this.red
