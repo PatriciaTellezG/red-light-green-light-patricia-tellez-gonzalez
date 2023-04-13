@@ -1,5 +1,6 @@
 ## RED LIGHT, GREEN LIGHT
 
+Objetivo: lograr la puntuación más alta
 ## Jugar desde local 💻
 
 Para iniciar el juego desde local
