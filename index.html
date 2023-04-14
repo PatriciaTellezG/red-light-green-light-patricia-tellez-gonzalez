@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+
+  <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -14,18 +16,29 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background-color: #E0F0F3 ;
+      background-color: #E0F0F3;
       color: #3195c7;
     }
+
   </style>
   <title>Traffic lights</title>
 </head>
 
 <body>
   <red-light-green-light></red-light-green-light>
- 
+
+  <script>
   
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js").then((registration) => {
+          console.log("Registroscope: ", registration.scope);
+        });
+      }
+    
+
+  </script>
   <script type="module" src="./src/red-light-green-light.js"></script>
+  
 </body>
 
 </html>

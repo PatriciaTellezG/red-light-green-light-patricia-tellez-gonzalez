@@ -5,13 +5,17 @@ import {
 } from 'lit';
 
 export class Header extends LitElement {
-  static properties = {
-    header: {
+  static get properties() {
+    return {
+        header: {
       type: String
     },
     userName: {
       type: String
     },
+    }
+
+  
 
   }
 
@@ -21,8 +25,9 @@ export class Header extends LitElement {
 
   }
 
-
-  static styles = css `
+  static styles() {
+    return css
+    `
      .header {
         display:flex;
         justify-content:space-between;
@@ -53,7 +58,8 @@ export class Header extends LitElement {
     }
     `;
 
-
+  }
+ 
 
 
   render() {

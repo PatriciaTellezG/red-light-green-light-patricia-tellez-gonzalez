@@ -7,14 +7,10 @@
     "description": "El popular juego de El Escondite Inglés",
     "icons": [
       {
-        "src": "../assets/green.png",
-        "sizes": "205x205",
-        "type": "image/png"
-      },
-      {
-        "src": "../assets/red.png",
-        "sizes": "205x205",
+        "src": "../assets/favicon.ico",
+        "sizes": "512x512",
         "type": "image/png"
       }
+      
     ]
   }

@@ -1,7 +1,6 @@
 import {
   LitElement,
   html,
-  css
 } from 'lit';
 import './components/home.js';
 import './components/game.js';
@@ -16,13 +15,6 @@ import {
 } from "@vaadin/router";
 
 class RedLightGreenLight extends LitElement {
-  static properties = {
-
-  }
-
-  static styles = css `
-    
-  `;
 
   render() {
     return html `

@@ -2,15 +2,14 @@ const staticResourcesCache = "static-cache-v1";
 const resources = [
   "/",
   "/index.html",
-  "../assets/green.png",
-  "../assets/red.png",
-  "../assets/welcome.png",
+  "/assets/green.png",
+  "/assets/red.png",
+  "/assets/welcome.png",
   
 ];
 
 
 self.addEventListener("install", (e) => {
-  console.log("Intentando instalar el SW");
   e.waitUntil(
     caches.open(staticResourcesCache).then((cache) => {
       return cache.addAll(resources);

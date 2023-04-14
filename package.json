@@ -11,7 +11,8 @@
     "test": "web-test-runner test/**/*.test.js --node-resolve",
     "test:unit": "web-test-runner",
     "test:unit:watch": "web-test-runner --watch",
-    "test:unit:coverage": "npm run test:unit -- --coverage"
+    "test:unit:coverage": "npm run test:unit -- --coverage",
+    "build": "rimraf dist && rollup -c rollup.config.js"
    
   },
   "dependencies": {
@@ -24,7 +25,10 @@
     "@open-wc/testing": "^3.1.7",
     "@web/test-runner-junit-reporter": "^0.5.2",
     "@web/test-runner": "^0.15.0",
-    "sinon": "^15.0.2"
+    "sinon": "^15.0.2",
+    "@open-wc/building-rollup": "^0.1.1",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.6.0"
 
    
   },

@@ -2,8 +2,9 @@ import {LitElement,html,css} from 'lit';
 import {Router} from '@vaadin/router';
 
 export class Game extends LitElement {
-  static properties = {
-    userName: {
+  static get properties() {
+    return {
+      userName: {
       type: String
     },
     count: {
@@ -18,6 +19,8 @@ export class Game extends LitElement {
     red: {
       type: Boolean
     },
+    }
+    
   }
 
   constructor() {
@@ -96,8 +99,9 @@ export class Game extends LitElement {
 
 
 
-
-  static styles = css `
+  static styles() {
+    return css
+  `
     .game-buttons {
         display:flex;
         justify-content:space-evenly;
@@ -144,6 +148,7 @@ export class Game extends LitElement {
         width:40%;
     }
   `;
+  }
   //update user name (line:82)
   render() {
     return html `

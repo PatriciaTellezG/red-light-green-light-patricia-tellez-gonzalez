@@ -1,4 +1,4 @@
-/*import {html} from "lit";
+import {html} from "lit";
 import "../src/components/game.js" ;
 import { fixture, expect } from '@open-wc/testing';
 import { stub } from 'sinon';
@@ -31,4 +31,4 @@ describe('game-component', () => {
     });
   });
 
-  */
+  
