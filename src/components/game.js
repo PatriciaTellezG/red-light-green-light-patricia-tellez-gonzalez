@@ -99,7 +99,7 @@ export class Game extends LitElement {
 
 
 
-  static styles() {
+  static get styles() {
     return css
   `
     .game-buttons {

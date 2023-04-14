@@ -6,10 +6,6 @@ import './components/home.js';
 import './components/game.js';
 import './components/header.js';
 
-
-
-
-
 import {
   Router
 } from "@vaadin/router";

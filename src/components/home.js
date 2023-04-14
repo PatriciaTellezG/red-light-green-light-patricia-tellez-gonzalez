@@ -33,7 +33,7 @@ export class Home extends LitElement {
   }
 
 
-  static styles() {
+  static get styles() {
     return css
   `
     @media screen and (min-width:400px){

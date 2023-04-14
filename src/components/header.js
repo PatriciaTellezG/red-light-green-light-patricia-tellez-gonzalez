@@ -25,7 +25,7 @@ export class Header extends LitElement {
 
   }
 
-  static styles() {
+  static get styles() {
     return css
     `
      .header {
