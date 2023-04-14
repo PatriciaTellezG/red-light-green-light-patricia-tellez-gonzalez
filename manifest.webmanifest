@@ -1,0 +1,16 @@
+{
+    "name": "Red light, Green light",
+    "short_name": "RedLightGreenLight",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#E0F0F3",
+    "description": "El popular juego de El Escondite Inglés",
+    "icons": [
+      {
+        "src": "../assets/favicon.ico",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+      
+    ]
+  }

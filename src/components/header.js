@@ -5,13 +5,17 @@ import {
 } from 'lit';
 
 export class Header extends LitElement {
-  static properties = {
-    header: {
+  static get properties() {
+    return {
+        header: {
       type: String
     },
     userName: {
       type: String
     },
+    }
+
+  
 
   }
 
@@ -21,15 +25,16 @@ export class Header extends LitElement {
 
   }
 
-
-  static styles = css `
+  static get styles() {
+    return css
+    `
      .header {
         display:flex;
         justify-content:space-between;
-        height:10%;
+        height:5%;
         background-color:#3195c7;
         color:#E0F0F3 ;
-        padding:4%;
+        padding:1%;
      }
 
      .exitButton {
@@ -53,7 +58,8 @@ export class Header extends LitElement {
     }
     `;
 
-
+  }
+ 
 
 
   render() {

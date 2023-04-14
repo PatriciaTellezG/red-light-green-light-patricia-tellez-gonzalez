@@ -8,13 +8,16 @@ import {
 } from '@vaadin/router';
 
 export class Home extends LitElement {
-  static properties = {
-    homeTitle: {
+  static get properties() {
+    return{
+       homeTitle: {
       type: String
     },
     userName: {
       type: String
     }
+    }
+   
   }
 
   constructor() {
@@ -29,7 +32,10 @@ export class Home extends LitElement {
     Router.go(`/game?user=${inputValue}`)
   }
 
-  static styles = css `
+
+  static get styles() {
+    return css
+  `
     @media screen and (min-width:400px){
 
     }
@@ -142,6 +148,7 @@ export class Home extends LitElement {
           
       }
   `;
+    }
 
 
   render() {

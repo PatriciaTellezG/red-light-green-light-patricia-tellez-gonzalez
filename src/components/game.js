@@ -1,14 +1,10 @@
-import {
-  LitElement,
-  html,
-  css
-} from 'lit';
-import {
-  Router
-} from '@vaadin/router';
+import {LitElement,html,css} from 'lit';
+import {Router} from '@vaadin/router';
+
 export class Game extends LitElement {
-  static properties = {
-    userName: {
+  static get properties() {
+    return {
+      userName: {
       type: String
     },
     count: {
@@ -23,6 +19,8 @@ export class Game extends LitElement {
     red: {
       type: Boolean
     },
+    }
+    
   }
 
   constructor() {
@@ -60,7 +58,6 @@ export class Game extends LitElement {
       }, timeOut);
     }
     if (changedProperties.has('count') || changedProperties.has('highestScore')) {
-debugger
       let userInfo = {
         count: this.count,
         highestScore: this.highestScore,
@@ -76,8 +73,6 @@ debugger
 
 
   }
-  //const highScore = localStorage.getItem('highScore');
-  // const playerName = localStorage.getItem('playerName');
 
   leftButton() {
     this.clickButton('left');
@@ -104,8 +99,9 @@ debugger
 
 
 
-
-  static styles = css `
+  static get styles() {
+    return css
+  `
     .game-buttons {
         display:flex;
         justify-content:space-evenly;
@@ -133,13 +129,13 @@ debugger
         display:flex;
         flex-direction:column;
         align-items:center;
-        padding:15%;
+        padding:2%;
     }
 
     .traffic-light-image {
         display:flex;
         justify-content:center;
-        padding:10%;
+        padding:3%;
     }
     .high-score {
         font-size:100%;
@@ -149,9 +145,10 @@ debugger
         font-size:100%;
     }
     img {
-        width:50%;
+        width:40%;
     }
   `;
+  }
   //update user name (line:82)
   render() {
     return html `
