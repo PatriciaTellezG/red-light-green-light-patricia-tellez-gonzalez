@@ -1,11 +1,6 @@
-import {
-  LitElement,
-  html,
-  css
-} from 'lit';
-import {
-  Router
-} from '@vaadin/router';
+import {LitElement,html,css} from 'lit';
+import {Router} from '@vaadin/router';
+
 export class Game extends LitElement {
   static properties = {
     userName: {
@@ -130,13 +125,13 @@ export class Game extends LitElement {
         display:flex;
         flex-direction:column;
         align-items:center;
-        padding:15%;
+        padding:2%;
     }
 
     .traffic-light-image {
         display:flex;
         justify-content:center;
-        padding:10%;
+        padding:3%;
     }
     .high-score {
         font-size:100%;
@@ -146,7 +141,7 @@ export class Game extends LitElement {
         font-size:100%;
     }
     img {
-        width:50%;
+        width:40%;
     }
   `;
   //update user name (line:82)

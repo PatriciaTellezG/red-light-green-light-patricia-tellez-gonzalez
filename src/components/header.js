@@ -26,10 +26,10 @@ export class Header extends LitElement {
      .header {
         display:flex;
         justify-content:space-between;
-        height:10%;
+        height:5%;
         background-color:#3195c7;
         color:#E0F0F3 ;
-        padding:4%;
+        padding:1%;
      }
 
      .exitButton {
