@@ -8,6 +8,9 @@ Para iniciar el juego desde local
 -abrir la terminal y ejecutar --> npm i
 - para desplegar en local --> npm run start
 
+Link directo al despliegue de Netlify
+https://gilded-toffee-9ebcb7.netlify.app/
+
 
 ## Instrucciones del juego 🚦
 
